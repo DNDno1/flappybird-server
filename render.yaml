@@ -1,0 +1,23 @@
+services:
+  - type: web
+    name: flappybird-online-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /health
+    envVars:
+      - key: DB_HOST
+        sync: false
+      - key: DB_PORT
+        value: "4000"
+      - key: DB_USER
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: DB_NAME
+        value: flappy_bird_db
+      - key: DB_SSL_MODE
+        value: VERIFY_IDENTITY
+      - key: JWT_SECRET
+        generateValue: true
+      - key: AUTO_INIT_DB
+        value: "true"
